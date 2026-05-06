@@ -1,12 +1,6 @@
 import Link from 'next/link'
 import Logo from './Logo'
-
-const NAV_LINKS = [
-  { label: 'Home',    href: '/'        },
-  { label: 'About',   href: '/about'   },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/contact' },
-]
+import { NAV_LINKS } from '@/lib/nav-links'
 
 export default function Footer() {
   return (
@@ -25,7 +19,7 @@ export default function Footer() {
           <span className="font-jost text-[9px] text-white/40 tracking-[2px] uppercase">Navigation</span>
           {NAV_LINKS.map(({ label, href }) => (
             <Link key={label} href={href} className="font-jost text-[11px] text-white/55 hover:text-accent tracking-[1px] no-underline transition-colors">
-              {label}
+              {label.charAt(0).toUpperCase() + label.slice(1).toLowerCase()}
             </Link>
           ))}
         </div>
