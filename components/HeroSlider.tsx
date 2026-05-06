@@ -24,7 +24,6 @@ export default function HeroSlider() {
   return (
     <section
       aria-label="Hero slider"
-      role="region"
       className="absolute inset-0 overflow-hidden bg-bg-base"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -32,7 +31,7 @@ export default function HeroSlider() {
       {/* Photo stack */}
       {SLIDES.map((slide, i) => (
         <div
-          key={i}
+          key={slide.img}
           className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
           style={{ opacity: i === idx ? 1 : 0, zIndex: 1 }}
         >
@@ -40,6 +39,7 @@ export default function HeroSlider() {
             src={slide.img}
             alt=""
             fill
+            sizes="100vw"
             priority={i === 0}
             className="object-cover object-[center_30%]"
             style={{
@@ -67,7 +67,7 @@ export default function HeroSlider() {
       >
         {TILES.map((tile, i) => (
           <li
-            key={i}
+            key={tile.color}
             onMouseEnter={() => setHoveredTile(i)}
             onMouseLeave={() => setHoveredTile(null)}
             className="overflow-hidden flex items-center justify-center cursor-pointer"
@@ -98,7 +98,7 @@ export default function HeroSlider() {
         <div className="relative flex-1 max-w-[820px]">
           {SLIDES.map((slide, i) => (
             <div
-              key={i}
+              key={slide.img}
               style={{
                 position: i === idx ? 'relative' : 'absolute',
                 top: 0, left: 0, right: 0,
@@ -165,12 +165,12 @@ export default function HeroSlider() {
               {String(idx + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
             </span>
             <div className="flex gap-[5px]">
-              {SLIDES.map((_, i) => (
+              {SLIDES.map((slide, i) => (
                 <button
-                  key={i}
+                  key={slide.img}
                   onClick={() => setIdx(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  aria-current={i === idx ? 'true' : undefined}
+                  aria-current={i === idx ? true : undefined}
                   className="h-[2px] border-0 cursor-pointer p-0 transition-all duration-300 ease-in-out"
                   style={{
                     width: i === idx ? 22 : 10,

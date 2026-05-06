@@ -1,5 +1,6 @@
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import HeroSlider from '@/components/HeroSlider'
+import { SLIDES } from '@/lib/slides'
 
 jest.mock('next/image', () => ({
   __esModule: true,
@@ -56,5 +57,14 @@ describe('HeroSlider', () => {
     render(<HeroSlider />)
     fireEvent.click(screen.getByLabelText('Go to slide 3'))
     expect(screen.getByLabelText('Go to slide 3')).toHaveAttribute('aria-current', 'true')
+  })
+
+  it('wraps to slide 1 on next from last slide', () => {
+    render(<HeroSlider />)
+    for (let i = 0; i < SLIDES.length - 1; i++) {
+      fireEvent.click(screen.getByLabelText('Next slide'))
+    }
+    fireEvent.click(screen.getByLabelText('Next slide'))
+    expect(screen.getByLabelText('Go to slide 1')).toHaveAttribute('aria-current', 'true')
   })
 })
