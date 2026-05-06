@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-const WEB3FORMS_ACCESS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY'
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ''
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -51,7 +51,7 @@ export default function ContactForm() {
         <input id="email" name="email" type="email" required placeholder="you@example.com" className={inputClass} />
       </div>
       <div>
-        <label htmlFor="phone" className={labelClass}>Phone Number</label>
+        <label htmlFor="phone" className={labelClass}>Phone Number <span className="text-white/30 normal-case tracking-normal">(optional)</span></label>
         <input id="phone" name="phone" type="tel" placeholder="+234 800 000 0000" className={inputClass} />
       </div>
       <div>
@@ -67,7 +67,7 @@ export default function ContactForm() {
       </div>
 
       {status === 'error' && (
-        <p className="font-jost text-[11px] text-red-400 tracking-[1px]">
+        <p role="alert" className="font-jost text-[11px] text-red-400 tracking-[1px]">
           Something went wrong. Please try again or contact us directly.
         </p>
       )}

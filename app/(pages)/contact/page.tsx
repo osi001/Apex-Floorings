@@ -20,8 +20,8 @@ export default function ContactPage() {
             <div className="w-8 h-px bg-accent" />
             <span className="font-jost text-[9px] text-white/50 tracking-[3px] uppercase">Get in touch</span>
           </div>
-          <h1 className="font-jost text-[36px] md:text-[48px] font-normal text-white tracking-[0.5px] uppercase leading-[1.1]">
-            Let's work together
+          <h1 className="font-jost text-[36px] md:text-[48px] font-normal text-white tracking-[0.5px] leading-[1.1]">
+            LET'S WORK TOGETHER
           </h1>
           <p className="font-jost text-[13px] font-light text-white/55 mt-3">
             Tell us about your project and we'll get back to you within 24 hours.
@@ -91,18 +91,21 @@ export default function ContactPage() {
 
       {/* Section 3 — Google Map embed */}
       {/* Replace the src with the actual Google Maps embed URL for the client's address */}
-      <div className="w-full h-[400px] bg-[#1a1a1a]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.4631924773!2d3.1191131!3d6.5480356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1234567890"
-          width="100%"
-          height="100%"
-          style={{ border: 0, filter: 'grayscale(1) invert(0.9) brightness(0.7)' }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Apex Floorings location"
-        />
-      </div>
+      <section aria-label="Office location">
+        <div className="w-full h-[400px] bg-[#1a1a1a]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.4631924773!2d3.1191131!3d6.5480356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1234567890"
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: 'grayscale(1) invert(0.9) brightness(0.7)' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Apex Floorings location"
+            sandbox="allow-scripts allow-same-origin"
+          />
+        </div>
+      </section>
     </>
   )
 }

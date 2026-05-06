@@ -26,6 +26,7 @@ describe('ContactForm', () => {
 
     expect(await screen.findByRole('button', { name: /sending/i })).toBeDisabled()
     resolve({ ok: true } as Response)
+    await waitFor(() => expect(screen.queryByRole('button', { name: /sending/i })).not.toBeInTheDocument())
   })
 
   it('shows success confirmation after ok response', async () => {
