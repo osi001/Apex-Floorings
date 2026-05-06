@@ -1,19 +1,38 @@
 import type { Metadata } from 'next'
+import { Bebas_Neue, Jost } from 'next/font/google'
 import './globals.css'
+import WhatsAppButton from '@/components/WhatsAppButton'
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas',
+  display: 'swap',
+})
+
+const jost = Jost({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-jost',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Apex Floorings',
-  description: 'Premium flooring solutions',
+  title: {
+    default: 'Apex Floorings — Premium Interlocking Tile Flooring Nigeria',
+    template: '%s | Apex Floorings',
+  },
+  description:
+    'Premium interlocking tile flooring for residential, commercial, sports and industrial spaces. Expert installation across Lagos, Abuja and Port Harcourt.',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${bebasNeue.variable} ${jost.variable} bg-bg-base font-jost`}>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   )
 }
