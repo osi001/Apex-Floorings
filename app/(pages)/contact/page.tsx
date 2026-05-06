@@ -21,10 +21,10 @@ export default function ContactPage() {
             <span className="font-jost text-[9px] text-white/50 tracking-[3px] uppercase">Get in touch</span>
           </div>
           <h1 className="font-jost text-[36px] md:text-[48px] font-normal text-white tracking-[0.5px] leading-[1.1]">
-            LET'S WORK TOGETHER
+            LET&apos;S WORK TOGETHER
           </h1>
           <p className="font-jost text-[13px] font-light text-white/55 mt-3">
-            Tell us about your project and we'll get back to you within 24 hours.
+            Tell us about your project and we&apos;ll get back to you within 24 hours.
           </p>
         </div>
       </section>

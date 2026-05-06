@@ -35,7 +35,7 @@ export default function ContactForm() {
       <div className="py-12 text-center">
         <div className="w-12 h-1 bg-accent mx-auto mb-6" />
         <p className="font-jost text-[14px] text-white tracking-[1px] uppercase">Message sent</p>
-        <p className="font-jost text-[12px] text-white/50 mt-2">We'll be in touch within 24 hours.</p>
+        <p className="font-jost text-[12px] text-white/50 mt-2">We&apos;ll be in touch within 24 hours.</p>
       </div>
     )
   }
