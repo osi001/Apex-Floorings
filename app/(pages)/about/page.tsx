@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -29,7 +30,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Section 1 — Brand Hero */}
-      <section className="relative min-h-[70vh] flex items-end bg-bg-base overflow-hidden">
+      <section aria-label="Brand story" className="relative min-h-[70vh] flex items-end bg-bg-base overflow-hidden">
         {/* Replace src below with client-provided about hero image path */}
         <Image
           src="/assets/hero-1-team-portrait.jpg"
@@ -58,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Section 2 — Why Apex */}
-      <section className="bg-bg-base px-6 md:px-14 py-20">
+      <section aria-label="Why Apex" className="bg-bg-base px-6 md:px-14 py-20">
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-accent" />
@@ -81,17 +82,17 @@ export default function AboutPage() {
       </section>
 
       {/* Section 3 — Locations Ticker */}
-      <div className="bg-accent px-6 md:px-14 py-[11px] flex items-center justify-between">
+      <section aria-label="Locations" className="bg-accent px-6 md:px-14 py-[11px] flex items-center justify-between">
         <span className="font-jost text-[11px] font-medium text-[#1a1a1a] tracking-[1.5px] uppercase">
           LAGOS · ABUJA · PORT HARCOURT →
         </span>
-        <a
+        <Link
           href="/contact"
           className="font-jost text-[10px] font-bold text-on-accent tracking-[2px] uppercase no-underline"
         >
           GET IN TOUCH
-        </a>
-      </div>
+        </Link>
+      </section>
     </>
   )
 }
