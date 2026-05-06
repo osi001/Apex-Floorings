@@ -1,0 +1,185 @@
+'use client'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { SLIDES } from '@/lib/slides'
+import { TILES } from '@/lib/tiles'
+
+const INTERVAL = 5500
+
+export default function HeroSlider() {
+  const [idx, setIdx] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const [hoveredTile, setHoveredTile] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (paused) return
+    const t = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), INTERVAL)
+    return () => clearInterval(t)
+  }, [paused])
+
+  const prev = () => setIdx((i) => (i - 1 + SLIDES.length) % SLIDES.length)
+  const next = () => setIdx((i) => (i + 1) % SLIDES.length)
+
+  return (
+    <section
+      aria-label="Hero slider"
+      role="region"
+      className="absolute inset-0 overflow-hidden bg-bg-base"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Photo stack */}
+      {SLIDES.map((slide, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
+          style={{ opacity: i === idx ? 1 : 0, zIndex: 1 }}
+        >
+          <Image
+            src={slide.img}
+            alt=""
+            fill
+            priority={i === 0}
+            className="object-cover object-[center_30%]"
+            style={{
+              transform: i === idx ? 'scale(1.05)' : 'scale(1)',
+              transition: 'transform 7s ease-out',
+            }}
+          />
+        </div>
+      ))}
+
+      {/* Bottom gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 2,
+          background: 'linear-gradient(to top, rgba(14,14,14,0.92) 0%, rgba(14,14,14,0.5) 28%, rgba(14,14,14,0) 55%)',
+        }}
+      />
+
+      {/* Colour swatch strip — hidden below lg (1024px) */}
+      <ul
+        className="absolute right-0 bottom-0 hidden lg:flex lg:flex-col"
+        style={{ top: 76, width: 72, zIndex: 5 }}
+        aria-label="Tile colour range"
+      >
+        {TILES.map((tile, i) => (
+          <li
+            key={i}
+            onMouseEnter={() => setHoveredTile(i)}
+            onMouseLeave={() => setHoveredTile(null)}
+            className="overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-[350ms] ease-in-out"
+            style={{
+              flex: hoveredTile === i ? 2 : 1,
+              background: tile.color,
+            }}
+          >
+            {hoveredTile === i && (
+              <span
+                className="font-jost text-[9px] font-bold tracking-[2px] uppercase whitespace-nowrap"
+                style={{ color: tile.textColor, writingMode: 'vertical-rl' }}
+              >
+                {tile.label}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      {/* Bottom text overlay */}
+      <div
+        className="absolute flex items-end justify-between gap-10"
+        style={{ left: 56, right: 96, bottom: 60, zIndex: 10 }}
+      >
+        {/* Left — animated per-slide content */}
+        <div className="relative flex-1 max-w-[820px]">
+          {SLIDES.map((slide, i) => (
+            <div
+              key={i}
+              className="transition-all duration-700 ease-in-out"
+              style={{
+                position: i === idx ? 'relative' : 'absolute',
+                top: 0, left: 0, right: 0,
+                opacity: i === idx ? 1 : 0,
+                transform: i === idx ? 'translateY(0)' : 'translateY(16px)',
+                transitionDelay: i === idx ? '0.25s' : '0s',
+                pointerEvents: i === idx ? 'auto' : 'none',
+              }}
+            >
+              <div className="flex items-center gap-[10px] mb-3">
+                <div className="w-5 h-px bg-white/50" />
+                <span className="font-jost text-[9px] text-white/60 tracking-[3px] font-normal">
+                  {slide.eyebrow}
+                </span>
+              </div>
+              <h1 className="font-jost text-[32px] leading-[1.15] text-white tracking-[0.2px] mb-[10px] font-normal">
+                {slide.headline}
+              </h1>
+              <p className="font-jost text-[12px] text-white/55 leading-[1.65] max-w-[480px] font-light tracking-[0.2px]">
+                {slide.sub}
+              </p>
+            </div>
+          ))}
+
+          {/* Static CTAs */}
+          <div className="flex gap-[10px] mt-[22px]">
+            <Link
+              href="/gallery"
+              className="font-jost text-[10px] font-semibold bg-accent text-on-accent px-[26px] py-3 tracking-[2px] uppercase no-underline"
+            >
+              VIEW PRODUCTS
+            </Link>
+            <Link
+              href="/gallery"
+              className="font-jost text-[10px] font-normal text-white border border-white/25 px-6 py-3 tracking-[2px] uppercase no-underline"
+            >
+              OUR WORK →
+            </Link>
+          </div>
+        </div>
+
+        {/* Right — arrows + counter + dots */}
+        <div className="flex flex-col items-end gap-[14px] flex-shrink-0">
+          <div className="flex gap-2">
+            <button
+              onClick={prev}
+              aria-label="Previous slide"
+              className="w-[38px] h-[38px] font-jost text-sm text-white border border-white/30 bg-transparent flex items-center justify-center"
+            >
+              ←
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next slide"
+              className="w-[38px] h-[38px] font-jost text-sm font-bold text-on-accent bg-accent border-0 flex items-center justify-center"
+            >
+              →
+            </button>
+          </div>
+          <div className="flex items-center gap-[10px]">
+            <span className="font-jost text-[11px] text-white/70 tracking-[1px] font-normal">
+              {String(idx + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
+            </span>
+            <div className="flex gap-[5px]">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  aria-current={i === idx ? 'true' : undefined}
+                  className="h-[2px] border-0 cursor-pointer p-0 transition-all duration-300 ease-in-out"
+                  style={{
+                    width: i === idx ? 22 : 10,
+                    background: i === idx ? '#CFDB30' : 'rgba(255,255,255,0.3)',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
