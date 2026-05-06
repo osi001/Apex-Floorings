@@ -2,13 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
-const LINKS = [
-  { label: 'HOME',    href: '/'        },
-  { label: 'ABOUT',   href: '/about'   },
-  { label: 'GALLERY', href: '/gallery' },
-  { label: 'CONTACT', href: '/contact' },
-]
+import { NAV_LINKS } from '@/lib/nav-links'
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -35,7 +29,7 @@ export default function MobileNav() {
           >
             ×
           </button>
-          {LINKS.map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href }) => (
             <Link
               key={label}
               href={href}

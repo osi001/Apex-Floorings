@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import NavLinks from './NavLinks'
 import MobileNav from './MobileNav'
+import Logo from './Logo'
 
 interface NavProps {
   variant?: 'overlay' | 'solid'
@@ -16,14 +17,7 @@ export default function Nav({ variant = 'solid' }: NavProps) {
           : 'sticky top-0 bg-bg-base border-b border-white/[0.08]'
       }`}
     >
-      <Link href="/" className="flex items-center gap-3 no-underline">
-        {/* Replace the div below with <Image src="/logo.svg" ... /> once logo is provided */}
-        <div className="w-1 h-9 bg-accent flex-shrink-0" />
-        <div>
-          <span className="font-bebas text-[22px] text-white tracking-[3px] block leading-none">APEX</span>
-          <span className="font-jost text-[9px] text-accent tracking-[4px] uppercase font-medium block">FLOORINGS</span>
-        </div>
-      </Link>
+      <Logo />
 
       <NavLinks />
 

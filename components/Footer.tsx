@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Logo from './Logo'
 
 const NAV_LINKS = [
   { label: 'Home',    href: '/'        },
@@ -13,13 +14,7 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between gap-10">
         {/* Brand */}
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-3">
-            <div className="w-1 h-9 bg-accent flex-shrink-0" />
-            <div>
-              <span className="font-bebas text-[22px] text-white tracking-[3px] block leading-none">APEX</span>
-              <span className="font-jost text-[9px] text-accent tracking-[4px] uppercase font-medium block">FLOORINGS</span>
-            </div>
-          </div>
+          <Logo />
           <p className="font-jost text-[11px] text-white/40 tracking-[1px] uppercase max-w-[200px]">
             Premium interlocking tile flooring across Nigeria.
           </p>
