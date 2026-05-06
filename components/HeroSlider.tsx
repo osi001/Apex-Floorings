@@ -70,10 +70,11 @@ export default function HeroSlider() {
             key={i}
             onMouseEnter={() => setHoveredTile(i)}
             onMouseLeave={() => setHoveredTile(null)}
-            className="overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-[350ms] ease-in-out"
+            className="overflow-hidden flex items-center justify-center cursor-pointer"
             style={{
               flex: hoveredTile === i ? 2 : 1,
               background: tile.color,
+              transition: 'flex 0.35s ease',
             }}
           >
             {hoveredTile === i && (
@@ -98,14 +99,15 @@ export default function HeroSlider() {
           {SLIDES.map((slide, i) => (
             <div
               key={i}
-              className="transition-all duration-700 ease-in-out"
               style={{
                 position: i === idx ? 'relative' : 'absolute',
                 top: 0, left: 0, right: 0,
                 opacity: i === idx ? 1 : 0,
                 transform: i === idx ? 'translateY(0)' : 'translateY(16px)',
-                transitionDelay: i === idx ? '0.25s' : '0s',
                 pointerEvents: i === idx ? 'auto' : 'none',
+                transition: i === idx
+                  ? 'opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s'
+                  : 'opacity 0.7s ease 0s, transform 0.7s ease 0s',
               }}
             >
               <div className="flex items-center gap-[10px] mb-3">
