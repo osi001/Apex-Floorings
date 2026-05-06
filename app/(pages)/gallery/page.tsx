@@ -19,6 +19,13 @@ const APPLICATIONS = [
 export default function GalleryPage() {
   return (
     <>
+      {/* Page heading */}
+      <div className="bg-bg-base px-6 md:px-14 pt-16 pb-4">
+        <h1 className="font-jost text-[36px] md:text-[48px] font-normal text-white tracking-[0.5px] uppercase">
+          Gallery
+        </h1>
+      </div>
+
       {/* Section 1 — Colour Range */}
       <section aria-label="Colour range" className="bg-bg-base px-6 md:px-14 py-20">
         <div className="mb-12">

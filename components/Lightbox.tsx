@@ -17,13 +17,12 @@ export default function Lightbox({ images, initialIndex, onClose }: LightboxProp
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowLeft') prev()
-      if (e.key === 'ArrowRight') next()
+      if (e.key === 'ArrowLeft') setIdx((i) => (i - 1 + images.length) % images.length)
+      if (e.key === 'ArrowRight') setIdx((i) => (i + 1) % images.length)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onClose])
+  }, [onClose, images.length])
 
   return (
     <div

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Lightbox from './Lightbox'
 import type { Category, GalleryImage } from '@/lib/gallery'
@@ -21,6 +21,8 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null)
 
   const visible = active === 'all' ? images : images.filter((img) => img.category === active)
+
+  const closeLightbox = useCallback(() => setLightboxIdx(null), [])
 
   return (
     <div>
@@ -68,7 +70,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
         <Lightbox
           images={images}
           initialIndex={lightboxIdx}
-          onClose={() => setLightboxIdx(null)}
+          onClose={closeLightbox}
         />
       )}
     </div>
