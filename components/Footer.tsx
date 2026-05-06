@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 pt-6 border-t border-white/[0.06]">
-        <span className="font-jost text-[9px] text-white/40 tracking-[1px]">
+        <span className="font-jost text-[9px] text-white/40 tracking-[1px] font-normal">
           © {new Date().getFullYear()} Apex Floorings. All rights reserved.
         </span>
       </div>
