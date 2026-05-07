@@ -31,10 +31,9 @@ export default function AboutPage() {
     <>
       {/* Section 1 — Brand Hero */}
       <section aria-label="Brand story" className="relative min-h-[70vh] flex items-end bg-bg-base overflow-hidden">
-        {/* Replace src below with client-provided about hero image path */}
         <Image
-          src="/assets/hero-1-team-portrait.jpg"
-          alt="Apex Floorings team"
+          src="/about-hero.jpg"
+          alt="Apex Floorings team member"
           fill
           priority
           sizes="100vw"

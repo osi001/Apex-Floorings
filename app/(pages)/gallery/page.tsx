@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 }
 
 const APPLICATIONS = [
-  { label: 'Residential', body: 'Transform homes and estates with durable, beautiful interlocking tiles that stand up to everyday life.',          category: 'residential' },
-  { label: 'Commercial',  body: 'High-traffic commercial spaces demand flooring that lasts. Our tiles are engineered for it.',                    category: 'commercial'  },
-  { label: 'Sports',      body: 'Professional sports courts and multi-purpose halls require surfaces that perform. We build them.',               category: 'sports'      },
-  { label: 'Industrial',  body: 'Warehouses, factories, and industrial facilities get flooring built for load, impact, and longevity.',           category: 'industrial'  },
+  { label: 'Residential', body: 'Transform homes and estates with durable, beautiful interlocking tiles that stand up to everyday life.',          category: 'residential', img: '/applications/residential.jpg' },
+  { label: 'Commercial',  body: 'High-traffic commercial spaces demand flooring that lasts. Our tiles are engineered for it.',                    category: 'commercial',  img: '/applications/commercial.jpg'  },
+  { label: 'Sports',      body: 'Professional sports courts and multi-purpose halls require surfaces that perform. We build them.',               category: 'sports',      img: '/applications/sports.jpg'      },
+  { label: 'Industrial',  body: 'Warehouses, factories, and industrial facilities get flooring built for load, impact, and longevity.',           category: 'industrial',  img: '/applications/industrial.jpg'  },
 ]
 
 export default function GalleryPage() {
@@ -70,11 +70,10 @@ export default function GalleryPage() {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.04]">
-          {APPLICATIONS.map(({ label, body, category }) => (
+          {APPLICATIONS.map(({ label, body, category, img }) => (
             <div key={label} className="relative aspect-video overflow-hidden group bg-[#1a1a1a]">
-              {/* Replace with actual application images when provided */}
               <Image
-                src="/assets/hero-1-team-portrait.jpg"
+                src={img}
                 alt={`${label} flooring`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
