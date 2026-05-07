@@ -18,6 +18,7 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://apexfloorings.ng'), // Replace with actual domain
   title: {
     default: 'Apex Floorings — Premium Interlocking Tile Flooring Nigeria',
     template: '%s | Apex Floorings',

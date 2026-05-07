@@ -24,7 +24,8 @@ export default function ContactForm() {
         method: 'POST',
         body: data,
       })
-      setStatus(res.ok ? 'success' : 'error')
+      const json = await res.json()
+      setStatus(json.success ? 'success' : 'error')
     } catch {
       setStatus('error')
     }

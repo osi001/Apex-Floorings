@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Get in touch with Apex Floorings. Chat on WhatsApp, send us a message, or visit us in Lagos, Abuja, or Port Harcourt.',
 }
 
-const WHATSAPP_NUMBER = 'REPLACE_WITH_NUMBER'
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ''
 const EMAIL_ADDRESSES = ['info@apexfloorings.ng'] // Replace with actual email(s)
 const PHONE_NUMBERS   = ['+234 800 000 0000']      // Replace with actual number(s)
 
