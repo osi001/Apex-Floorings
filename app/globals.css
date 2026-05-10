@@ -7,6 +7,21 @@
   box-sizing: border-box;
 }
 
+/* Opt-in escape hatch for the few places we genuinely want a circle (e.g. floating WhatsApp button). */
+.is-circle {
+  border-radius: 9999px !important;
+}
+
+/* Soft pulsing halo behind the floating WhatsApp logo */
+@keyframes whatsapp-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(37, 211, 102, 0.55); }
+  70%  { box-shadow: 0 0 0 22px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(37, 211, 102, 0); }
+}
+.whatsapp-fab {
+  animation: whatsapp-pulse 2.4s ease-out infinite;
+}
+
 html, body {
   margin: 0;
   padding: 0;
