@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor / agent artefacts
+/.claude/
+/.vscode/
+/.idea/
+
+# raw media drops from client (already copied into /public)
+/apex media/
+/public/media v2/

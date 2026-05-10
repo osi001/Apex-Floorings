@@ -27,7 +27,7 @@ export const SLIDES: Slide[] = [
   {
     img: '/assets/hero-4-colour-range.jpg',
     eyebrow: 'COLOUR RANGE',
-    headline: 'TWENTY+ BOLD COLOURS',
-    sub: 'Twenty plus tile colours to match your space, your brand and your style.',
+    headline: 'A BOLD PALETTE FOR ANY SPACE',
+    sub: 'A wide range of tile colours to match your space, your brand and your style.',
   },
 ]

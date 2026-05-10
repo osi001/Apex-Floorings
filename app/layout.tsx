@@ -30,7 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${bebasNeue.variable} ${jost.variable} bg-bg-base font-jost`}>
+      <body
+        className={`${bebasNeue.variable} ${jost.variable} bg-bg-base font-jost`}
+        suppressHydrationWarning
+      >
         {children}
         <WhatsAppButton />
       </body>

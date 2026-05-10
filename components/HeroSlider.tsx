@@ -9,14 +9,12 @@ const INTERVAL = 5500
 
 export default function HeroSlider() {
   const [idx, setIdx] = useState(0)
-  const [paused, setPaused] = useState(false)
   const [hoveredTile, setHoveredTile] = useState<number | null>(null)
 
   useEffect(() => {
-    if (paused) return
     const t = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), INTERVAL)
     return () => clearInterval(t)
-  }, [paused])
+  }, [])
 
   const prev = () => setIdx((i) => (i - 1 + SLIDES.length) % SLIDES.length)
   const next = () => setIdx((i) => (i + 1) % SLIDES.length)
@@ -25,8 +23,6 @@ export default function HeroSlider() {
     <section
       aria-label="Hero slider"
       className="absolute inset-0 overflow-hidden bg-bg-base"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       {/* Photo stack */}
       {SLIDES.map((slide, i) => (
@@ -41,11 +37,7 @@ export default function HeroSlider() {
             fill
             sizes="100vw"
             priority={i === 0}
-            className="object-cover object-[center_30%]"
-            style={{
-              transform: i === idx ? 'scale(1.05)' : 'scale(1)',
-              transition: 'transform 7s ease-out',
-            }}
+            className="object-cover object-center"
           />
         </div>
       ))}

@@ -18,7 +18,7 @@ const PILLARS = [
   },
   {
     title: 'Colour Range',
-    body: 'Twenty-plus tile colours let you design spaces that reflect your brand, your style, and your vision.',
+    body: 'A wide palette of tile colours lets you design spaces that reflect your brand, your style, and your vision.',
   },
   {
     title: 'Nationwide Reach',
