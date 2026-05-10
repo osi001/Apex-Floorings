@@ -43,8 +43,11 @@ next-env.d.ts
 
 # editor / agent artefacts
 /.claude/
+/.superpowers/
 /.vscode/
 /.idea/
+CLAUDE.md
+/docs/superpowers/
 
 # raw media drops from client (already copied into /public)
 /apex media/
