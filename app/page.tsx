@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
 import HeroSlider from '@/components/HeroSlider'
-import BottomStrip from '@/components/BottomStrip'
 import Footer from '@/components/Footer'
 import { GALLERY_IMAGES } from '@/lib/gallery'
 import { TILES } from '@/lib/tiles'
@@ -15,9 +14,9 @@ export default function HomePage() {
   const featured = GALLERY_IMAGES.slice(0, 4)
 
   return (
-    <main className="bg-bg-base pb-[44px]">
-      {/* Hero — fills viewport above the sticky strip */}
-      <div className="relative overflow-hidden" style={{ height: 'calc(100vh - 44px)' }}>
+    <main className="bg-bg-base">
+      {/* Hero — full viewport */}
+      <div className="relative overflow-hidden h-screen">
         <Nav variant="overlay" />
         <HeroSlider />
       </div>
@@ -133,11 +132,6 @@ export default function HomePage() {
       </section>
 
       <Footer />
-
-      {/* Sticky bottom strip — always visible at viewport bottom */}
-      <div className="fixed bottom-0 left-0 right-0 z-40">
-        <BottomStrip />
-      </div>
     </main>
   )
 }
