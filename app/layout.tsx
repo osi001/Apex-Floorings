@@ -20,11 +20,11 @@ const jost = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL('https://apexfloorings.ng'), // Replace with actual domain
   title: {
-    default: 'Apex Floorings — Premium Interlocking Tile Flooring Nigeria',
+    default: 'Apex Floorings | Premium Interlocking Tile Flooring Nigeria',
     template: '%s | Apex Floorings',
   },
   description:
-    'Premium interlocking tile flooring for residential, commercial, sports and industrial spaces. Expert installation across Lagos, Abuja and Port Harcourt.',
+    'Premium interlocking tile flooring for residential, commercial, sports and industrial spaces. Expert installation available nationwide.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

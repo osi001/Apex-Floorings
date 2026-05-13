@@ -4,13 +4,13 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn about Apex Floorings — our story, mission, and what drives us to deliver premium interlocking tile flooring across Nigeria.',
+  description: 'Learn about Apex Floorings, our story, mission, and what drives us to deliver premium interlocking tile flooring across Nigeria.',
 }
 
 const PILLARS = [
   {
     title: 'Quality Materials',
-    body: 'Every tile is engineered for durability — built to withstand heavy traffic, weather, and time without sacrificing aesthetics.',
+    body: 'Every tile is engineered for durability, built to withstand heavy traffic, weather, and time without sacrificing aesthetics.',
   },
   {
     title: 'Expert Installation',
@@ -22,7 +22,7 @@ const PILLARS = [
   },
   {
     title: 'Nationwide Reach',
-    body: 'We serve clients across Lagos, Abuja, and Port Harcourt — delivering the same standard of excellence on every job.',
+    body: 'We serve clients nationwide, delivering the same standard of excellence on every job, no matter the location.',
   },
 ]
 
@@ -49,10 +49,10 @@ export default function AboutPage() {
           </h1>
           <p className="font-jost text-[13px] md:text-[14px] font-light text-white/70 leading-[1.7] mb-4">
             {/* Replace with client brand story copy */}
-            Apex Floorings was founded with one purpose — to bring world-class interlocking tile flooring to Nigeria. We believe every space deserves flooring that performs as well as it looks.
+            Apex Floorings was founded with one purpose: to bring world-class interlocking tile flooring to Nigeria. We believe every space deserves flooring that performs as well as it looks.
           </p>
           <p className="font-jost text-[13px] md:text-[14px] font-light text-white/70 leading-[1.7]">
-            From residential homes to commercial complexes, sports courts to industrial facilities, we engineer our tiles for the demands of real environments — and install them with precision.
+            From residential homes to commercial complexes, sports courts to industrial facilities, we engineer our tiles for the demands of real environments and install them with precision.
           </p>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default function AboutPage() {
       {/* Section 3 — Locations Ticker */}
       <section aria-label="Locations" className="bg-accent px-6 md:px-14 py-[11px] flex items-center justify-between">
         <span className="font-jost text-[11px] font-medium text-[#1a1a1a] tracking-[1.5px] uppercase">
-          LAGOS · ABUJA · PORT HARCOURT →
+          AVAILABLE NATIONWIDE →
         </span>
         <Link
           href="/contact"

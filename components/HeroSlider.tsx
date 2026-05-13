@@ -1,15 +1,14 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SLIDES } from '@/lib/slides'
-import { TILES } from '@/lib/tiles'
 
 const INTERVAL = 5500
 
 export default function HeroSlider() {
   const [idx, setIdx] = useState(0)
-  const [hoveredTile, setHoveredTile] = useState<number | null>(null)
+  const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), INTERVAL)
@@ -19,10 +18,22 @@ export default function HeroSlider() {
   const prev = () => setIdx((i) => (i - 1 + SLIDES.length) % SLIDES.length)
   const next = () => setIdx((i) => (i + 1) % SLIDES.length)
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev()
+    touchStartX.current = null
+  }
+
   return (
     <section
       aria-label="Hero slider"
       className="absolute inset-0 overflow-hidden bg-bg-base"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       {/* Photo stack */}
       {SLIDES.map((slide, i) => (
@@ -51,40 +62,10 @@ export default function HeroSlider() {
         }}
       />
 
-      {/* Colour swatch strip — hidden below lg (1024px) */}
-      <ul
-        className="absolute right-0 bottom-0 hidden lg:flex lg:flex-col"
-        style={{ top: 76, width: 72, zIndex: 5 }}
-        aria-label="Tile colour range"
-      >
-        {TILES.map((tile, i) => (
-          <li
-            key={tile.color}
-            onMouseEnter={() => setHoveredTile(i)}
-            onMouseLeave={() => setHoveredTile(null)}
-            className="overflow-hidden flex items-center justify-center cursor-pointer"
-            style={{
-              flex: hoveredTile === i ? 2 : 1,
-              background: tile.color,
-              transition: 'flex 0.35s ease',
-            }}
-          >
-            {hoveredTile === i && (
-              <span
-                className="font-jost text-[9px] font-bold tracking-[2px] uppercase whitespace-nowrap"
-                style={{ color: tile.textColor, writingMode: 'vertical-rl' }}
-              >
-                {tile.label}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
-
       {/* Bottom text overlay */}
       <div
         className="absolute flex items-end justify-between gap-10"
-        style={{ left: 56, right: 96, bottom: 60, zIndex: 10 }}
+        style={{ left: 56, right: 56, bottom: 60, zIndex: 10 }}
       >
         {/* Left — animated per-slide content */}
         <div className="relative flex-1 max-w-[820px]">
@@ -104,7 +85,7 @@ export default function HeroSlider() {
             >
               <div className="flex items-center gap-[10px] mb-3">
                 <div className="w-5 h-px bg-white/50" />
-                <span className="font-jost text-[9px] text-white/60 tracking-[3px] font-normal">
+                <span className="font-jost text-[10px] text-white/90 tracking-[3px] font-semibold">
                   {slide.eyebrow}
                 </span>
               </div>
@@ -136,7 +117,7 @@ export default function HeroSlider() {
 
         {/* Right — arrows + counter + dots */}
         <div className="flex flex-col items-end gap-[14px] flex-shrink-0">
-          <div className="flex gap-2">
+          <div className="hidden md:flex gap-2">
             <button
               onClick={prev}
               aria-label="Previous slide"

@@ -24,12 +24,10 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Locations */}
+        {/* Coverage */}
         <div className="flex flex-col gap-3">
-          <span className="font-jost text-[9px] text-white/40 tracking-[2px] uppercase">Locations</span>
-          {['Lagos', 'Abuja', 'Port Harcourt'].map((city) => (
-            <span key={city} className="font-jost text-[11px] text-white/55 tracking-[1px]">{city}</span>
-          ))}
+          <span className="font-jost text-[9px] text-white/40 tracking-[2px] uppercase">Coverage</span>
+          <span className="font-jost text-[11px] text-white/55 tracking-[1px]">Available nationwide</span>
         </div>
       </div>
 

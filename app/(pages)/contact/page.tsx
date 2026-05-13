@@ -3,7 +3,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Apex Floorings. Chat on WhatsApp, send us a message, or visit us in Lagos, Abuja, or Port Harcourt.',
+  description: 'Get in touch with Apex Floorings. Chat on WhatsApp or send us a message about your project.',
 }
 
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ''
@@ -78,12 +78,10 @@ export default function ContactPage() {
               ))}
             </div>
 
-            {/* Locations */}
+            {/* Coverage */}
             <div>
-              <span className="font-jost text-[9px] text-white/40 tracking-[2px] uppercase block mb-3">Locations</span>
-              {['Lagos', 'Abuja', 'Port Harcourt'].map((city) => (
-                <span key={city} className="font-jost text-[12px] text-white/55 block leading-[2]">{city}</span>
-              ))}
+              <span className="font-jost text-[9px] text-white/40 tracking-[2px] uppercase block mb-3">Coverage</span>
+              <span className="font-jost text-[12px] text-white/55 block leading-[2]">Available nationwide</span>
             </div>
           </div>
         </div>

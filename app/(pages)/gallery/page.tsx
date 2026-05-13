@@ -59,9 +59,12 @@ export default function GalleryPage() {
             <div className="w-8 h-px bg-accent" />
             <span className="font-jost text-[9px] text-white/50 tracking-[3px] uppercase">Applications</span>
           </div>
-          <h2 className="font-jost text-[28px] md:text-[36px] font-normal text-white tracking-[0.5px] uppercase">
+          <h2 className="font-jost text-[28px] md:text-[36px] font-normal text-white tracking-[0.5px] uppercase mb-4">
             Use Cases
           </h2>
+          <p className="font-jost text-[12px] font-light text-white/50 leading-[1.7] max-w-[560px]">
+            These are just a few of the spaces our tiles have transformed. If you can imagine it, we can floor it.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.04]">
           {APPLICATIONS.map(({ label, body, category, img }) => (

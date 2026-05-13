@@ -7,7 +7,7 @@ import { GALLERY_IMAGES } from '@/lib/gallery'
 import { TILES } from '@/lib/tiles'
 
 export const metadata = {
-  title: 'Apex Floorings — Premium Interlocking Tile Flooring Nigeria',
+  title: 'Apex Floorings | Premium Interlocking Tile Flooring Nigeria',
 }
 
 export default function HomePage() {
@@ -32,7 +32,7 @@ export default function HomePage() {
             Built for performance.<br />Designed to last.
           </h2>
           <p className="font-jost text-[13px] md:text-[14px] font-light text-white/60 leading-[1.7] mb-8">
-            Apex Floorings brings world-class interlocking tile flooring to Nigeria — engineered for residential, commercial, sports and industrial spaces, installed with precision by our trained teams.
+            Apex Floorings brings world-class interlocking tile flooring to Nigeria. Engineered for residential, commercial, sports and industrial spaces, installed with precision by our trained teams.
           </p>
           <Link
             href="/about"

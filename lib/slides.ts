@@ -10,19 +10,19 @@ export const SLIDES: Slide[] = [
     img: '/assets/hero-1-premium.jpg',
     eyebrow: 'INTERLOCKING TILES',
     headline: 'PREMIUM FLOORING SOLUTIONS',
-    sub: 'Interlocking tiles, sports surfaces and industrial flooring — engineered for performance, designed for beauty.',
+    sub: 'Interlocking tiles, sports surfaces and industrial flooring. Engineered for performance, designed for beauty.',
   },
   {
     img: '/assets/hero-2-installation.jpg',
     eyebrow: 'INSTALLATION SERVICES',
     headline: 'EXPERT INSTALLATION NATIONWIDE',
-    sub: 'From Lagos to Abuja, our team delivers precision installation on every project — on time, every time.',
+    sub: 'Our team delivers precision installation on every project, anywhere in Nigeria. On time, every time.',
   },
   {
     img: '/assets/hero-3-laying-tiles.jpg',
     eyebrow: 'RESIDENTIAL & COMMERCIAL',
     headline: 'FLOORS BUILT TO LAST',
-    sub: 'From homes to commercial complexes — our tiles interlock with precision, built for beauty and durability.',
+    sub: 'From homes to commercial complexes. Our tiles interlock with precision, built for beauty and durability.',
   },
   {
     img: '/assets/hero-4-colour-range.jpg',
