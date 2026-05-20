@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   description: 'Get in touch with Apex Floorings. Chat on WhatsApp or send us a message about your project.',
 }
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ''
-const EMAIL_ADDRESSES = ['info@apexfloorings.ng'] // Replace with actual email(s)
-const PHONE_NUMBERS   = ['+234 800 000 0000']      // Replace with actual number(s)
+const WHATSAPP_NUMBER = '2348085148898'
+const EMAIL_ADDRESSES = ['info@apexgroup.ng']
+const PHONE_NUMBERS   = ['+234 903 274 0765', '+234 808 514 8898']
 
 export default function ContactPage() {
   return (

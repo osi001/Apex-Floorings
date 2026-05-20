@@ -98,19 +98,13 @@ export default function HeroSlider() {
             </div>
           ))}
 
-          {/* Static CTAs */}
-          <div className="flex gap-[10px] mt-[22px]">
+          {/* Static CTA */}
+          <div className="mt-[22px]">
             <Link
               href="/gallery"
               className="font-jost text-[10px] font-semibold bg-accent text-on-accent px-[26px] py-3 tracking-[2px] uppercase no-underline"
             >
-              VIEW PRODUCTS
-            </Link>
-            <Link
-              href="/gallery"
-              className="font-jost text-[10px] font-normal text-white border border-white/25 px-6 py-3 tracking-[2px] uppercase no-underline"
-            >
-              OUR WORK →
+              VIEW OUR WORK →
             </Link>
           </div>
         </div>

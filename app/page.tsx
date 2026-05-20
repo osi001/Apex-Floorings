@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Nav from '@/components/Nav'
 import HeroSlider from '@/components/HeroSlider'
 import Footer from '@/components/Footer'
+import ColourStrip from '@/components/ColourStrip'
 import { GALLERY_IMAGES } from '@/lib/gallery'
-import { TILES } from '@/lib/tiles'
 
 export const metadata = {
   title: 'Apex Floorings | Premium Interlocking Tile Flooring Nigeria',
@@ -63,25 +63,7 @@ export default function HomePage() {
             A palette built for any space
           </h2>
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/[0.04]">
-          {TILES.map((tile) => (
-            <div
-              key={tile.label}
-              className="aspect-square flex flex-col"
-              style={{ background: tile.color }}
-            >
-              <div className="flex-1" />
-              <div className="p-3" style={{ background: 'rgba(0,0,0,0.2)' }}>
-                <span
-                  className="font-jost text-[9px] font-bold tracking-[2px] uppercase block"
-                  style={{ color: tile.textColor }}
-                >
-                  {tile.label}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ColourStrip />
       </section>
 
       {/* Featured projects */}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import GalleryGrid from '@/components/GalleryGrid'
-import { TILES } from '@/lib/tiles'
+import ColourStrip from '@/components/ColourStrip'
 import { GALLERY_IMAGES } from '@/lib/gallery'
 import { APPLICATIONS } from '@/lib/applications'
 
@@ -31,25 +31,7 @@ export default function GalleryPage() {
             Our Colour Range
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/[0.04]">
-          {TILES.map((tile) => (
-            <div
-              key={tile.label}
-              className="aspect-square flex flex-col"
-              style={{ background: tile.color }}
-            >
-              <div className="flex-1" />
-              <div className="p-4" style={{ background: 'rgba(0,0,0,0.2)' }}>
-                <span
-                  className="font-jost text-[10px] font-bold tracking-[2px] uppercase block"
-                  style={{ color: tile.textColor }}
-                >
-                  {tile.label}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ColourStrip />
       </section>
 
       {/* Section 2 — Applications */}

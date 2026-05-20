@@ -1,8 +1,6 @@
 'use client'
 import { useState } from 'react'
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ''
-
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
@@ -16,19 +14,16 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus('loading')
 
-    const data = new FormData(e.currentTarget)
-    data.append('access_key', WEB3FORMS_ACCESS_KEY)
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', '59848a54-70f2-4df4-a2b7-f9494ca23bdb')
 
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data,
-      })
-      const json = await res.json()
-      setStatus(json.success ? 'success' : 'error')
-    } catch {
-      setStatus('error')
-    }
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+
+    const data = await response.json()
+    setStatus(data.success ? 'success' : 'error')
   }
 
   if (status === 'success') {
@@ -43,6 +38,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <input type="hidden" name="subject" value="New enquiry from Apex Floorings website" />
       <div>
         <label htmlFor="name" className={labelClass}>Full Name</label>
         <input id="name" name="name" type="text" required placeholder="Your full name" className={inputClass} />
