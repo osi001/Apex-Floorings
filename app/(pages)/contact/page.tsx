@@ -45,7 +45,7 @@ export default function ContactPage() {
             {/* WhatsApp CTA */}
             <div>
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20flooring%20options.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-accent text-on-accent font-jost text-[11px] font-bold tracking-[2px] uppercase px-8 py-4 no-underline w-full justify-center md:w-auto"
