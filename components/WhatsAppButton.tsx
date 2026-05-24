@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ''
+const WHATSAPP_NUMBER = '2348085148898'
 
 export default function WhatsAppButton() {
   return (
